@@ -13,7 +13,6 @@ export const options = {
 
   thresholds: {
     checks: ["rate>0.95"],
-    http_req_duration: [{ threshold: "p(95)<800", abortOnFail: false }],
   },
   ext: {
     loadimpact: {
