@@ -10,9 +10,10 @@ export const options = {
     { duration: "10s", target: 10 },
     { duration: "10s", target: 0 },
   ],
+
   thresholds: {
     checks: ["rate>0.95"],
-    http_req_duration: ["p(95)<200"],
+    http_req_duration: [{ threshold: "p(95)<200", abortOnFail: false }],
   },
   ext: {
     loadimpact: {
