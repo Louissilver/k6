@@ -5,9 +5,15 @@ jobs:
     name: K6 load test
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Step 1 - Checkout
         uses: actions/checkout@v3
-      - name: Run K6 load test
+      - name: Step 2 - Run K6 load test
         uses: grafana/k6-action@v0.2.0
         with:
           filename: github_actions/scripts/exemplo1.js
+      - run: ls & mkdir report & mv index.html report
+      - name: Step 3 - Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: Relatório de testes de performance
+          path: report
